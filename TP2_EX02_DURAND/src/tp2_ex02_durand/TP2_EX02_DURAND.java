@@ -21,22 +21,49 @@ public class TP2_EX02_DURAND {
         double temp;
         double res;
         Convertisseur conv = new Convertisseur();
-        System.out.println("Please enter the operator :\n1) Celcuis to Kelvin"
-                + "\n2) Kelvin to Celcuis\n3) Farenheit to Celcuis\n4) Celcuis to"
-                + " Farenheit\n6) Kelvin to Farenheit\nFarenheit to Kelvin");
+        System.out.println("""
+                           Please enter the operator :
+                           1) Celcuis to Kelvin
+                           2) Kelvin to Celcuis
+                           3) Farenheit to Celcuis
+                           4) Celcuis to Farenheit
+                           5) Kelvin to Farenheit
+                           6) Farenheit to Kelvin""");
         Scanner sc = new Scanner(System.in);
         instruct = sc.nextInt();
         System.out.println("Veuillez indiquer votre température");
         temp = sc.nextInt();
         
         switch(instruct){
-            case 1:
+            case 1 -> {
                 res = conv.CelcuisVersKelvin(temp);
                 System.out.println("Le resultat est : " + res);
+            }
+            case 2 -> { 
+                res = conv.KelvinVersCelcuis(temp);
+                System.out.println("Le resultat est : " + res);
+            }
+            case 3 -> { 
+                res = conv.FarenheitVersCelcuis(temp);
+                System.out.println("Le resultat est : " + res);
+            }
+            case 4 -> { 
+                res = conv.CelcuisVersFarenheit(temp);
+                System.out.println("Le resultat est : " + res);
+            }
+            case 5 -> { 
+                res = conv.KelvinVersFarenheit(temp);
+                System.out.println("Le resultat est : " + res);
+            }
+            case 6 -> {
+                res = conv.FarenheitVersKelvin(temp);
+                System.out.println("Le resultat est : " + res);
+            }             
+                           
         }
-
-        System.out.println(conv.CelcuisVersFarenheit(25));
-        System.out.println(conv);
     }
-
 }
+
+        
+
+
