@@ -34,7 +34,7 @@ public class TP_manip_DURAND {
         */
         
         Moussaka tab[] = new Moussaka[10];
-        for(int i = 0; i < 11; i++){
+        for(int i = 0; i < 10; i++){
             tab[i] = new Moussaka(100);
         }
         /* 
