@@ -26,11 +26,11 @@ public class Personnage {
     public String nom; 
     public int niveau_vie;
     public Arme arme_en_main;
-    public Vector<Arme> inventair = new Vector();
+    public ArrayList<Arme> inventair = new ArrayList();
 
     public boolean add_arme(Arme arme) {
         if (inventair.size() < 6) {
-            inventair.addElement(arme);
+            inventair.add(arme);
             return (true);
                     
             
@@ -45,8 +45,8 @@ public class Personnage {
     
     public void porter_arme(String nom){
         for(int i = 0; i < inventair.size(); i++){
-            if(inventair.elementAt(i).nom.equals("nom")){
-                arme_en_main = inventair.elementAt(i);
+            if(inventair.get(i).nom.equals("nom")){
+                arme_en_main = inventair.get(i);
                 System.out.println("L'arme à bien été équiper");
             }
         }

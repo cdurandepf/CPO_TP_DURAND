@@ -4,6 +4,7 @@
  */
 package tp4_durand_corentin;
 
+import Armes.Arme;
 import Armes.Epee;
 import Armes.Baton;
 import Personnage.Guerrier;
@@ -32,15 +33,15 @@ public class TP4_DURAND_Corentin {
         Baton baton_1 = new Baton("Chêne", 4, 5);
         Baton baton_2 = new Baton("Chârme", 5, 6);
         
-        Vector list_arme = new Vector();
+        ArrayList<Arme> list_arme = new ArrayList();
         
-        list_arme.addElement(epee_1); 
-        list_arme.addElement(epee_2);
-        list_arme.addElement(baton_1);
-        list_arme.addElement(baton_2);
+        list_arme.add(epee_1); 
+        list_arme.add(epee_2);
+        list_arme.add(baton_1);
+        list_arme.add(baton_2);
         
         for(int i = 0; i < list_arme.size(); i++){
-            System.out.println(list_arme.elementAt(i));
+            System.out.println(list_arme.get(i));
         }
         
         Magicien mage_1 = new Magicien("Gandalf",65,true);
@@ -48,15 +49,15 @@ public class TP4_DURAND_Corentin {
         Guerrier guerrier_1 = new Guerrier("Conan", 78, false);
         Guerrier guerrier_2 = new Guerrier("Lannister", 45, true);
        
-        Vector list_personnage = new Vector();
+        ArrayList list_personnage = new ArrayList();
         
-        list_personnage.addElement(mage_1);
-        list_personnage.addElement(mage_2);
-        list_personnage.addElement(guerrier_1);
-        list_personnage.addElement(guerrier_2);
+        list_personnage.add(mage_1);
+        list_personnage.add(mage_2);
+        list_personnage.add(guerrier_1);
+        list_personnage.add(guerrier_2);
         
         for(int i = 0; i < list_personnage.size(); i++){
-            System.out.println(list_personnage.elementAt(i));
+            System.out.println(list_personnage.get(i));
         }
         
         
