@@ -1,4 +1,6 @@
-package tp4_durand_corentin;
+package Armes;
+
+import Armes.Arme;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
