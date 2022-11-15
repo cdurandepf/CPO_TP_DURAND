@@ -80,6 +80,18 @@ public class Personnage implements etre_vivant {
         return (retour);
 
     }
+    
+    public void Arme_fort(){
+        if(this instanceof Magicien){
+            if(this.arme_en_main instanceof Baton){
+                this.arme_en_main.AP_arme *= 1.2;
+            }
+        }else{
+            if(this.arme_en_main instanceof Epee){
+                this.arme_en_main.AD_arme *= 1.2;
+            }
+        }
+    }
 
     @Override
     public String toString() {

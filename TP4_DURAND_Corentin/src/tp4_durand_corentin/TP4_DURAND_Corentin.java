@@ -84,13 +84,14 @@ public class TP4_DURAND_Corentin {
         guerrier_1.Attaque(mage_2);
         **/
         
-        mage_1.add_arme(baton_1);
-        mage_1.porter_arme(baton_1);
-        System.out.println(mage_1.Duel(guerrier_2));
-        System.out.println(guerrier_1.arme_en_main);
-      
+        mage_1.add_arme(baton_3);
+        mage_1.porter_arme(baton_3);
+        guerrier_1.add_arme(epee_3);
+        guerrier_1.porter_arme(epee_3);
+        System.out.println(mage_1.Duel(guerrier_1));
         
-
+      
+     
     }
 
 }
