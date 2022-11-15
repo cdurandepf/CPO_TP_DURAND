@@ -46,10 +46,10 @@ public class TP4_DURAND_Corentin {
             System.out.println(list_arme.get(i));
         }
         
-        Magicien mage_1 = new Magicien("Gandalf",65,true);
-        Magicien mage_2 = new Magicien("Garcimore", 44, false);
-        Guerrier guerrier_1 = new Guerrier("Conan", 78, false);
-        Guerrier guerrier_2 = new Guerrier("Lannister", 45, true);
+        Magicien mage_1 = new Magicien("Gandalf",65,true, 120, 80, 30, 10);
+        Magicien mage_2 = new Magicien("Garcimore", 44, false, 100, 30, 40, 5);
+        Guerrier guerrier_1 = new Guerrier("Conan", 78, false, 190, 30, 60, 60);
+        Guerrier guerrier_2 = new Guerrier("Lannister", 45, true, 170, 15, 40, 40);
        
         ArrayList list_personnage = new ArrayList();
         
@@ -73,7 +73,11 @@ public class TP4_DURAND_Corentin {
                 mage_1.Arme_predilection().size() + "\nNom arme Preferer : " + 
                 mage_1.Arme_predilection());
         System.out.println(mage_1);
+        System.out.println(Personnage.Personnage.nombre_personnage);
         
+        guerrier_1.seFatiger(); 
+        System.out.println(guerrier_1);
+        guerrier_1.Attaque(mage_2);
         
       
         

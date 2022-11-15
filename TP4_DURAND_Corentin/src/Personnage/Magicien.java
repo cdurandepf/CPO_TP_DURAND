@@ -16,13 +16,21 @@ import Armes.Arme;
  */
 public class Magicien extends Personnage {
     
-    public Magicien(String nom_v, int niv_vie, boolean exp){
+    public Magicien(String nom_v, int niv_vie, boolean exp, double vie, double atq, double tacle_i, double endurance_i){
         super(nom_v, niv_vie);        
         confirme = exp;
         arme_favori = true;
+        nombre_mage++;
+        PV = vie;
+        AP = atq;
+        tacle = tacle_i;
+        endurance = endurance_i;
+        etat = 100;
+        
     }
     
     public boolean confirme;
+    public static int nombre_mage = 0;
     
     public void setter_confirme(String action){
         if(action.equals("up")){
@@ -42,5 +50,5 @@ public class Magicien extends Personnage {
         }
         return(retour);
         
-    }
+    }    
 }
