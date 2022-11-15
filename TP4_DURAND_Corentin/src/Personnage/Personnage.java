@@ -19,7 +19,7 @@ public class Personnage implements etre_vivant {
     public Personnage(String nom_p, int niv_vie) {
         nom = nom_p;
         niveau_vie = niv_vie;
-        arme_en_main = null;
+        arme_en_main = new Arme("null", 0);
         nombre_personnage++;
     }
 
@@ -37,6 +37,7 @@ public class Personnage implements etre_vivant {
     public double vitesse;
     public double RM;
     public double Armor;
+    public int Charge = 0;
 
     public static int nombre_personnage = 0;
 
@@ -54,10 +55,10 @@ public class Personnage implements etre_vivant {
         return (arme_en_main);
     }
 
-    public void porter_arme(String nom) {
+    public void porter_arme(Arme arme) {
         boolean verif = true;
         for (int i = 0; i < inventair.size(); i++) {
-            if (inventair.get(i).nom.equals("nom")) {
+            if (inventair.get(i) == arme) {
                 arme_en_main = inventair.get(i);
                 System.out.println("L'arme à bien été équiper");
                 verif = false;
@@ -90,7 +91,7 @@ public class Personnage implements etre_vivant {
             return ("Nom : " + nom + "\nNiveau de vie : " + niveau_vie
                     + "\nEtat : " + etat + "\nEndurance : " + endurance
                     + "\nTâcle : " + tacle + "\nAP : " + AP + "\nAD : " + AD
-                    + "Arme équier : " + arme_en_main);
+                    + "\nArme équier : " + arme_en_main);
         }
 
     }
@@ -122,12 +123,14 @@ public class Personnage implements etre_vivant {
 
     @Override
     public boolean Attaque(Personnage cible) {
+        this.arme_en_main.Capacite(this);
         cible.estAttaquer(this);
         etat -= tacle / endurance;
         this.seFatiger();
         if (cible.PV <= 0) {
             return (true);
         }
+        this.Charge += 1;
         return (false);
     }
 
@@ -135,6 +138,7 @@ public class Personnage implements etre_vivant {
     public Personnage Duel(Personnage cible) {
         boolean kill_cible;
         boolean kill_this;
+        int tour = 0;
         while (this.PV > 0 || cible.PV > 0) {
             if (this.vitesse > cible.vitesse) {
                 kill_cible = this.Attaque(cible);
@@ -147,6 +151,7 @@ public class Personnage implements etre_vivant {
                     }
                 }
             }
+            tour += 1;
         }
         if (this.PV <= 0) {
             return (cible);

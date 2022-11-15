@@ -13,12 +13,13 @@ import Armes.Arme;
  */
 public class Epee extends Arme{
     
-    public Epee(String nom_epee, int niv_epee, int finesse, double atq){
+    public Epee(String nom_epee, int niv_epee, int finesse, double atq, int cap_i){
         super(nom_epee,niv_epee);
         indice_finesse = finesse;
         etre_baton = false;
         etre_epee = true;
         AD_arme = atq;
+        cap = cap_i;
     }
     
     public int indice_finesse;
