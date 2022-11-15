@@ -28,12 +28,12 @@ public class TP4_DURAND_Corentin {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Epee epee_1 = new Epee("Excalibur", 7, 5,15);
-        Epee epee_2 = new Epee("Durandal", 4, 7,7.5);
-        Epee epee_3 = new Epee("Sabre", 10, 1,20);
-        Baton baton_1 = new Baton("Chêne", 4, 5, 40);
-        Baton baton_2 = new Baton("Chârme", 5, 6, 20);
-        Baton baton_3 = new Baton("Olivier",10,1, 50);
+        Epee epee_1 = new Epee("Excalibur", 7, 5,15, 1);
+        Epee epee_2 = new Epee("Durandal", 4, 7,7.5,1);
+        Epee epee_3 = new Epee("Sabre", 10, 1,20,1);
+        Baton baton_1 = new Baton("Chêne", 4, 5, 40,1);
+        Baton baton_2 = new Baton("Chârme", 5, 6, 20,1);
+        Baton baton_3 = new Baton("Olivier",10,1, 50,1);
         
         ArrayList<Arme> list_arme = new ArrayList();
         
@@ -84,7 +84,10 @@ public class TP4_DURAND_Corentin {
         guerrier_1.Attaque(mage_2);
         **/
         
-        System.out.println(mage_2.Duel(guerrier_2));
+        mage_1.add_arme(baton_1);
+        mage_1.porter_arme(baton_1);
+        System.out.println(mage_1.Duel(guerrier_2));
+        System.out.println(guerrier_1.arme_en_main);
       
         
 
