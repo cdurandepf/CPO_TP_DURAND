@@ -30,8 +30,10 @@ public class TP4_DURAND_Corentin {
         
         Epee epee_1 = new Epee("Excalibur", 7, 5);
         Epee epee_2 = new Epee("Durandal", 4, 7);
+        Epee epee_3 = new Epee("Sabre", 10, 1);
         Baton baton_1 = new Baton("Chêne", 4, 5);
         Baton baton_2 = new Baton("Chârme", 5, 6);
+        Baton baton_3 = new Baton("Olivier",10,1);
         
         ArrayList<Arme> list_arme = new ArrayList();
         
@@ -60,6 +62,17 @@ public class TP4_DURAND_Corentin {
             System.out.println(list_personnage.get(i));
         }
         
+        
+        mage_1.add_arme(baton_3);
+        mage_1.add_arme(baton_2);
+        mage_1.add_arme(epee_2);
+        guerrier_1.add_arme(epee_3); 
+        guerrier_1.add_arme(epee_1);
+        
+        System.out.println("Nombre d'arme preferer du magicient : " + 
+                mage_1.Arme_predilection().size() + "\nNom arme Preferer : " + 
+                mage_1.Arme_predilection());
+        System.out.println(mage_1);
         
         
       
