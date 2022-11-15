@@ -16,7 +16,7 @@ import Armes.Arme;
  */
 public class Magicien extends Personnage {
     
-    public Magicien(String nom_v, int niv_vie, boolean exp, double vie, double atq, double tacle_i, double endurance_i){
+    public Magicien(String nom_v, int niv_vie, boolean exp, double vie, double atq, double tacle_i, double endurance_i, double RM_i, double Armor_i, double vitesse_i){
         super(nom_v, niv_vie);        
         confirme = exp;
         arme_favori = true;
@@ -26,6 +26,9 @@ public class Magicien extends Personnage {
         tacle = tacle_i;
         endurance = endurance_i;
         etat = 100;
+        RM = RM_i;
+        Armor = Armor_i;
+        vitesse = vitesse_i;
         
     }
     

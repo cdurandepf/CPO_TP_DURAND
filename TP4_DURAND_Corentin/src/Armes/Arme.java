@@ -20,6 +20,8 @@ public class Arme {
     public int niveau_atq; 
     public boolean etre_epee;
     public boolean etre_baton;
+    public double AD_arme = 0;
+    public double AP_arme = 0;
     
     @Override 
     public String toString(){

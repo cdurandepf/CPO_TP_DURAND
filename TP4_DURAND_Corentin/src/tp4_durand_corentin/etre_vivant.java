@@ -13,7 +13,8 @@ public interface etre_vivant {
     public void seFatiger();
     public boolean estVivant(); 
     public void estAttaquer(Personnage attaquant);
-    public void Attaque(Personnage cible);
+    public boolean Attaque(Personnage cible);
+    public Personnage Duel(Personnage cible);
     
     
 }

@@ -14,11 +14,12 @@ import Armes.Arme;
  */
 public class Baton extends Arme {
     
-    public Baton(String nom_bat, int niv_bat, int age_bat){
+    public Baton(String nom_bat, int niv_bat, int age_bat, double atq){
         super(nom_bat, niv_bat);
         age_baton = age_bat;
         etre_baton = true;
         etre_epee = false;
+        AP_arme = atq;
     }
     
     public int age_baton; 

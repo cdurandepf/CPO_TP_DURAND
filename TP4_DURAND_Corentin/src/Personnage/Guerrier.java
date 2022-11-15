@@ -14,7 +14,7 @@ import Personnage.Personnage;
  */
 public class Guerrier extends Personnage {
 
-    public Guerrier(String nom, int niv_vie, boolean cheval,  double vie, double atq, double tacle_i, double endurance_i) {
+    public Guerrier(String nom, int niv_vie, boolean cheval,  double vie, double atq, double tacle_i, double endurance_i, double RM_i, double Armor_i, double vitesse_i) {
         super(nom, niv_vie);
         chevalier = cheval;
         arme_favori = false;
@@ -24,6 +24,9 @@ public class Guerrier extends Personnage {
         tacle = tacle_i;
         endurance = endurance_i;
         etat = 100;
+        RM = RM_i; 
+        Armor = Armor_i; 
+        vitesse = vitesse_i;
     }
 
     public boolean chevalier;

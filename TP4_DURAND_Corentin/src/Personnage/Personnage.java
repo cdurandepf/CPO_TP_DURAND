@@ -34,6 +34,9 @@ public class Personnage implements etre_vivant {
     public double etat;
     public double endurance;
     public double tacle;
+    public double vitesse;
+    public double RM;
+    public double Armor;
 
     public static int nombre_personnage = 0;
 
@@ -80,14 +83,14 @@ public class Personnage implements etre_vivant {
     @Override
     public String toString() {
         if (arme_en_main == null) {
-            return ("Nom : " + nom + "\nNiveau de vie : " + niveau_vie +
-                    "\nEtat : " + etat + "\nEndurance : " + endurance + 
-                    "\nTâcle : " + tacle + "\nAP : " + AP + "\nAD : " + AD);
+            return ("Nom : " + nom + "\nNiveau de vie : " + niveau_vie
+                    + "\nEtat : " + etat + "\nEndurance : " + endurance
+                    + "\nTâcle : " + tacle + "\nAP : " + AP + "\nAD : " + AD);
         } else {
-            return ("Nom : " + nom + "\nNiveau de vie : " + niveau_vie +
-                    "\nEtat : " + etat + "\nEndurance : " + endurance + 
-                    "\nTâcle : " + tacle + "\nAP : " + AP + "\nAD : " + AD +
-                    "Arme équier : " + arme_en_main);
+            return ("Nom : " + nom + "\nNiveau de vie : " + niveau_vie
+                    + "\nEtat : " + etat + "\nEndurance : " + endurance
+                    + "\nTâcle : " + tacle + "\nAP : " + AP + "\nAD : " + AD
+                    + "Arme équier : " + arme_en_main);
         }
 
     }
@@ -109,14 +112,47 @@ public class Personnage implements etre_vivant {
 
     @Override
     public void estAttaquer(Personnage attaquant) {
-        PV -= attaquant.AP + attaquant.AD;
+        if (attaquant.arme_en_main == null) {
+            PV -= attaquant.AP + attaquant.AD;
+        } else {
+            PV -= (attaquant.AP + attaquant.arme_en_main.AP_arme) / RM
+                    + (attaquant.AD + attaquant.arme_en_main.AD_arme) / Armor;
+        }
     }
 
     @Override
-    public void Attaque(Personnage cible) {
+    public boolean Attaque(Personnage cible) {
         cible.estAttaquer(this);
-        etat -= tacle/endurance;
+        etat -= tacle / endurance;
         this.seFatiger();
+        if (cible.PV <= 0) {
+            return (true);
+        }
+        return (false);
+    }
+
+    @Override
+    public Personnage Duel(Personnage cible) {
+        boolean kill_cible;
+        boolean kill_this;
+        while (this.PV > 0 || cible.PV > 0) {
+            if (this.vitesse > cible.vitesse) {
+                kill_cible = this.Attaque(cible);
+                if (kill_cible) {
+                    return (this);
+                } else {
+                    kill_this = cible.Attaque(this);
+                    if (kill_this) {
+                        return (cible);
+                    }
+                }
+            }
+        }
+        if (this.PV <= 0) {
+            return (cible);
+        } else {
+            return (this);
+        }
     }
 
 }
