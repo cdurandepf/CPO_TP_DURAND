@@ -18,6 +18,8 @@ public class Arme {
     
     public String nom;
     public int niveau_atq; 
+    public boolean etre_epee;
+    public boolean etre_baton;
     
     @Override 
     public String toString(){

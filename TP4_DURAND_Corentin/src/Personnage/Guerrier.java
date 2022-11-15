@@ -17,6 +17,7 @@ public class Guerrier extends Personnage {
     public Guerrier(String nom, int niv_vie, boolean cheval) {
         super(nom, niv_vie);
         chevalier = cheval;
+        arme_favori = false;
     }
 
     public boolean chevalier;

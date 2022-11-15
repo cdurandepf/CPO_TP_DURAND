@@ -26,6 +26,7 @@ public class Personnage {
     public int niveau_vie;
     public Arme arme_en_main;
     public ArrayList<Arme> inventair = new ArrayList();
+    public boolean arme_favori;
 
     public boolean add_arme(Arme arme) {
         if (inventair.size() < 6) {
@@ -42,14 +43,31 @@ public class Personnage {
     }
 
     public void porter_arme(String nom) {
+        boolean verif = true;
         for (int i = 0; i < inventair.size(); i++) {
             if (inventair.get(i).nom.equals("nom")) {
                 arme_en_main = inventair.get(i);
                 System.out.println("L'arme à bien été équiper");
+                verif = false;
+                break;
             }
+        }
+        if (verif) {
+            System.out.println("Cette arme n'est pas dans l'inventaire");
         }
     }
 
+    public ArrayList Arme_predilection(){
+        ArrayList<Arme> retour = new ArrayList(); 
+        for(int i = 0;i < inventair.size(); i++){
+            if(inventair.get(i).etre_baton == arme_favori){
+                retour.add(inventair.get(i));
+            }
+        }
+        return(retour);
+        
+    }
+    
     @Override
     public String toString() {
         if (arme_en_main == null) {
@@ -57,7 +75,7 @@ public class Personnage {
         } else {
             return ("Nom : " + nom + "\nNiveau de vie : " + niveau_vie
                     + "Arme équpé : " + arme_en_main);
-        }
+        }   
 
     }
 
